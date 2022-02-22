@@ -1,6 +1,6 @@
 import glob, os, subprocess
 
-path = "C:\\Users\\Home\\projects\\helm\\concat_config"
+path = "C:\\Users\\Home\\projects\\helm"
 os.chdir(path)
 
 outfilename = path + "\\compiled-config\\prometheus-additional.yaml"
@@ -17,7 +17,7 @@ def concatenate_scrapes():
             outfile.write(line)
 
 def create_sectet():
-  os.system("kubectl.exe create secret generic additional-scrape-configs --from-file=" + outfilename + " -oyaml > C:\\Users\\Home\\projects\\helm\\concat_config\\compiled-config\\additional-scrape-configs.yaml")
+  os.system("kubectl.exe create secret generic additional-scrape-configs --from-file=" + outfilename + " --dry-run=client -oyaml > C:\\Users\\Home\\projects\\helm\\K8s-secret\\additional-scrape-configs.yaml")
 
 concatenate_scrapes()
 create_sectet()

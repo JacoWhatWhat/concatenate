@@ -1,6 +1,0 @@
-- job_name: "scrape3"
-  static_configs:
-  - targets: ["localhost:9090"]
-
-
-
